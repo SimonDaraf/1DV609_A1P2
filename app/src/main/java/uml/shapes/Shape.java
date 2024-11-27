@@ -28,7 +28,7 @@ public abstract class Shape {
   }
 
   public void changeBorderOption(BorderOptions option) {
-
+    this.borderOption = option;
   }
 
   public Color getBackgroundColor() {
