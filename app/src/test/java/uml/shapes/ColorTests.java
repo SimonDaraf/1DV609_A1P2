@@ -18,4 +18,24 @@ public class ColorTests {
       Assertions.assertTrue(true);
     }
   }
+
+  @Test
+  public void shouldFailIfGreenValueIsOver255() {
+    try {
+      Color sut = getSystemUnderTest(0, 256, 0);
+      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
+    } catch (InvalidRgbValueException e) {
+      Assertions.assertTrue(true);
+    }
+  }
+
+  @Test
+  public void shouldFailIfBlueValueIsOver255() {
+    try {
+      Color sut = getSystemUnderTest(0, 0, 256);
+      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
+    } catch (InvalidRgbValueException e) {
+      Assertions.assertTrue(true);
+    }
+  }
 }

@@ -19,41 +19,40 @@ public class Color {
    */
   public Color(int red, int green, int blue) throws InvalidRgbValueException {
     setRed(red);
-    this.green = green;
-    this.blue = blue;
+    setGreen(green);
+    setBlue(blue);
   }
 
-  /**
-   * Getter for the red value.
-   *
-   * @return - The red value.
-   */
   public int getRed() {
     return red;
   }
 
-  /**
-   * Getter for the green value.
-   *
-   * @return - The green value.
-   */
   public int getGreen() {
     return blue;
   }
 
-  /**
-   * Getter for the blue value.
-   *
-   * @return - The blue value.
-   */
   public int getBlue() {
     return green;
   }
 
   public void setRed(int red) throws InvalidRgbValueException {
-    if (red > 255) {
-      throw new InvalidRgbValueException("Exceeds the maximum RGB value of 255.", red);
-    }
+    validateRgbValue(red);
     this.red = red;
+  }
+
+  public void setGreen(int green) throws InvalidRgbValueException {
+    validateRgbValue(green);
+    this.green = green;
+  }
+
+  public void setBlue(int blue) throws InvalidRgbValueException {
+    validateRgbValue(blue);
+    this.blue = blue;
+  }
+
+  private void validateRgbValue(int value) throws InvalidRgbValueException {
+    if (value > 255) {
+      throw new InvalidRgbValueException("Exceeds the maximum RGB value of 255.", value);
+    }
   }
 }
