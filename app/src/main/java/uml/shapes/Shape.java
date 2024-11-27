@@ -20,7 +20,7 @@ public abstract class Shape {
   }
 
   public void changeBackgroundColor(Color color) {
-
+    this.backgroundColor.setColor(color);
   }
 
   public void changeLineColor(Color color) {
