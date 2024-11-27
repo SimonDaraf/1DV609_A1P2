@@ -24,7 +24,7 @@ public abstract class Shape {
   }
 
   public void changeLineColor(Color color) {
-
+    this.lineColor.setColor(color);
   }
 
   public void changeBorderOption(BorderOptions option) {
