@@ -54,5 +54,8 @@ public class Color {
     if (value > 255) {
       throw new InvalidRgbValueException("Exceeds the maximum RGB value of 255.", value);
     }
+    if (value < 0) {
+      throw new InvalidRgbValueException("Exceeds the minimum RGB value of 0", value);
+    }
   }
 }
