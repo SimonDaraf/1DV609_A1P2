@@ -62,4 +62,16 @@ public class ColorTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldBeAbleChangeEveryRgbValueWithNewColor() {
+    Color sut = getSystemUnderTest(0, 0, 0);
+    Color newColor = getSystemUnderTest(100, 50, 255);
+
+    sut.setColor(newColor);
+
+    Assertions.assertEquals(sut.getRed(), newColor.getRed());
+    Assertions.assertEquals(sut.getGreen(), newColor.getGreen());
+    Assertions.assertEquals(sut.getBlue(), newColor.getBlue());
+  }
 }

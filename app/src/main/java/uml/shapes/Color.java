@@ -47,6 +47,10 @@ public class Color {
     this.blue = validateRgbValue(blue);
   }
 
+  public void setColor(Color color) {
+    return;
+  }
+
   private int validateRgbValue(int value) {
     return Math.min(Math.max(value, 0), 255); // Clamp to [0, 255].
   }
