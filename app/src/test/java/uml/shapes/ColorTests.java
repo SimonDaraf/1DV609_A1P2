@@ -48,4 +48,24 @@ public class ColorTests {
       Assertions.assertTrue(true);
     }
   }
+
+  @Test
+  public void shouldFailIfGreenValueIsBelow0() {
+    try {
+      Color sut = getSystemUnderTest(0, -1, 0);
+      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
+    } catch (InvalidRgbValueException e) {
+      Assertions.assertTrue(true);
+    }
+  }
+
+  @Test
+  public void shouldFailIfBlueValueIsBelow0() {
+    try {
+      Color sut = getSystemUnderTest(0, 0, -1);
+      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
+    } catch (InvalidRgbValueException e) {
+      Assertions.assertTrue(true);
+    }
+  }
 }
