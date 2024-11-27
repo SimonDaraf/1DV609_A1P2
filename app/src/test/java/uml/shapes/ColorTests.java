@@ -5,67 +5,61 @@ import org.junit.jupiter.api.Test;
 import uml.shapes.errors.InvalidRgbValueException;
 
 public class ColorTests {
-  private Color getSystemUnderTest(int red, int green, int blue) throws InvalidRgbValueException {
+  private Color getSystemUnderTest(int red, int green, int blue) {
     return new Color(red, green, blue);
   }
 
   @Test
-  public void shouldFailIfRedValueIsOver255() {
-    try {
-      Color sut = getSystemUnderTest(256, 0, 0);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+  public void shouldCapRedValueTo255() {
+    Color sut = getSystemUnderTest(256, 0, 0);
+    int actual = sut.getRed();
+    int expected = 255;
+
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
-  public void shouldFailIfGreenValueIsOver255() {
-    try {
-      Color sut = getSystemUnderTest(0, 256, 0);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+  public void shouldCapGreenValueTo255() {
+    Color sut = getSystemUnderTest(0, 256, 0);
+    int actual = sut.getGreen();
+    int expected = 255;
+
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
-  public void shouldFailIfBlueValueIsOver255() {
-    try {
-      Color sut = getSystemUnderTest(0, 0, 256);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+  public void shouldCapBlueValueTo255() {
+    Color sut = getSystemUnderTest(0, 0, 256);
+    int actual = sut.getBlue();
+    int expected = 255;
+
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
   public void shouldFailIfRedValueIsBelow0() {
-    try {
-      Color sut = getSystemUnderTest(-1, 0, 0);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+    Color sut = getSystemUnderTest(-1, 0, 0);
+    int actual = sut.getRed();
+    int expected = 0;
+
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
   public void shouldFailIfGreenValueIsBelow0() {
-    try {
-      Color sut = getSystemUnderTest(0, -1, 0);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+    Color sut = getSystemUnderTest(0, -1, 0);
+    int actual = sut.getGreen();
+    int expected = 0;
+
+    Assertions.assertEquals(expected, actual);
   }
 
   @Test
   public void shouldFailIfBlueValueIsBelow0() {
-    try {
-      Color sut = getSystemUnderTest(0, 0, -1);
-      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
-    } catch (InvalidRgbValueException e) {
-      Assertions.assertTrue(true);
-    }
+    Color sut = getSystemUnderTest(0, 0, -1);
+    int actual = sut.getBlue();
+    int expected = 0;
+
+    Assertions.assertEquals(expected, actual);
   }
 }

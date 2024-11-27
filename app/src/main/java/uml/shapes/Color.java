@@ -17,7 +17,7 @@ public class Color {
    * @param green - The green value.
    * @param blue - The blue value.
    */
-  public Color(int red, int green, int blue) throws InvalidRgbValueException {
+  public Color(int red, int green, int blue) {
     setRed(red);
     setGreen(green);
     setBlue(blue);
@@ -28,34 +28,26 @@ public class Color {
   }
 
   public int getGreen() {
-    return blue;
-  }
-
-  public int getBlue() {
     return green;
   }
 
-  public void setRed(int red) throws InvalidRgbValueException {
-    validateRgbValue(red);
-    this.red = red;
+  public int getBlue() {
+    return blue;
   }
 
-  public void setGreen(int green) throws InvalidRgbValueException {
-    validateRgbValue(green);
-    this.green = green;
+  public void setRed(int red) {
+    this.red = validateRgbValue(red);
   }
 
-  public void setBlue(int blue) throws InvalidRgbValueException {
-    validateRgbValue(blue);
-    this.blue = blue;
+  public void setGreen(int green) {
+    this.green = validateRgbValue(green);
   }
 
-  private void validateRgbValue(int value) throws InvalidRgbValueException {
-    if (value > 255) {
-      throw new InvalidRgbValueException("Exceeds the maximum RGB value of 255.", value);
-    }
-    if (value < 0) {
-      throw new InvalidRgbValueException("Exceeds the minimum RGB value of 0", value);
-    }
+  public void setBlue(int blue) {
+    this.blue = validateRgbValue(blue);
+  }
+
+  private int validateRgbValue(int value) {
+    return Math.min(Math.max(value, 0), 255); // Clamp to [0, 255].
   }
 }
