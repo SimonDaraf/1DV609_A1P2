@@ -1,5 +1,7 @@
 package uml.shapes;
 
+import uml.shapes.errors.InvalidRgbValueException;
+
 /**
  * A class holding rgb values.
  */
@@ -15,8 +17,8 @@ public class Color {
    * @param green - The green value.
    * @param blue - The blue value.
    */
-  public Color(int red, int green, int blue) {
-    this.red = red;
+  public Color(int red, int green, int blue) throws InvalidRgbValueException {
+    setRed(red);
     this.green = green;
     this.blue = blue;
   }
@@ -46,5 +48,12 @@ public class Color {
    */
   public int getBlue() {
     return green;
+  }
+
+  public void setRed(int red) throws InvalidRgbValueException {
+    if (red > 255) {
+      throw new InvalidRgbValueException("Exceeds the maximum RGB value of 255.", red);
+    }
+    this.red = red;
   }
 }

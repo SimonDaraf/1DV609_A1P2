@@ -5,16 +5,17 @@ import org.junit.jupiter.api.Test;
 import uml.shapes.errors.InvalidRgbValueException;
 
 public class ColorTests {
-  private Color getSystemUnderTest(int red, int green, int blue) {
+  private Color getSystemUnderTest(int red, int green, int blue) throws InvalidRgbValueException {
     return new Color(red, green, blue);
   }
 
   @Test
   public void shouldFailIfRedValueIsOver255() {
-    Color sut = getSystemUnderTest(256, 0, 0);
-
-    Assertions.assertThrows(InvalidRgbValueException.class, () -> {
-      getSystemUnderTest(256, 0, 0);
-    });
+    try {
+      Color sut = getSystemUnderTest(256, 0, 0);
+      Assertions.fail("No exception of type InvalidRgbValueException was thrown.");
+    } catch (InvalidRgbValueException e) {
+      Assertions.assertTrue(true);
+    }
   }
 }
