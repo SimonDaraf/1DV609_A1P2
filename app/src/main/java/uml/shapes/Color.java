@@ -48,7 +48,9 @@ public class Color {
   }
 
   public void setColor(Color color) {
-    return;
+    this.setRed(color.getRed());
+    this.setGreen(color.getGreen());
+    this.setBlue(color.getBlue());
   }
 
   private int validateRgbValue(int value) {
