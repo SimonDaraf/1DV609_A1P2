@@ -34,4 +34,14 @@ public class ShapeTests {
     Assertions.assertEquals(actual.getGreen(), expected.getGreen());
     Assertions.assertEquals(actual.getBlue(), expected.getBlue());
   }
+
+  @Test
+  public void shouldBeAbleToChangeBorderOptions() {
+    BorderOptions expected = BorderOptions.DOTTED;
+
+    sut.changeBorderOption(expected);
+    BorderOptions actual = sut.getBorderOption();
+
+    Assertions.assertEquals(actual, expected);
+  }
 }
