@@ -9,6 +9,11 @@ Instead of creating a pretty GUI the application will be simulated via the termi
 Instead of rendering shapes, relations and associated attributes we will be displaying any related info in a
 table format.
 
+Below are some requirements to identify what needs to be implemented.
+For development purposes.
+
+### Table
+
 **An example would be:**
 
 | Entity_ID    | Entity_Type | Entity_Shape | Entity_Name |

@@ -47,6 +47,11 @@ public class Color {
     this.blue = validateRgbValue(blue);
   }
 
+  /**
+   * Change the color using another color instance.
+   *
+   * @param color - The color instance to copy.
+   */
   public void setColor(Color color) {
     this.setRed(color.getRed());
     this.setGreen(color.getGreen());

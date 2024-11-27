@@ -2,7 +2,6 @@ package uml.shapes;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import uml.shapes.errors.InvalidRgbValueException;
 
 public class ColorTests {
   private Color getSystemUnderTest(int red, int green, int blue) {

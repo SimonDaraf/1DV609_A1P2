@@ -32,11 +32,11 @@ public abstract class Shape {
   }
 
   public Color getBackgroundColor() {
-    return this.backgroundColor;
+    return new Color(backgroundColor.getRed(), backgroundColor.getGreen(), backgroundColor.getBlue());
   }
 
   public Color getLineColor() {
-    return this.lineColor;
+    return new Color(lineColor.getRed(), lineColor.getGreen(), lineColor.getBlue());
   }
 
   public BorderOptions getBorderOption() {
