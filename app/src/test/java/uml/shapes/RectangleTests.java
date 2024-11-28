@@ -49,4 +49,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldClampHeightTo0() {
+    Rectangle sut = new Rectangle();
+    float expected = 0;
+
+    sut.setHeight(-10);
+    float actual = sut.getHeight();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
