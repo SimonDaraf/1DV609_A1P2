@@ -1,7 +1,5 @@
 package uml.shapes;
 
-import uml.shapes.errors.InvalidRgbValueException;
-
 /**
  * A class holding rgb values.
  */
