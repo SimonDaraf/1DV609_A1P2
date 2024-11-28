@@ -76,7 +76,7 @@ public class Rectangle extends Shape {
   }
 
   public void setAnchorPosition(Point position) {
-
+    anchor = new Point(position);
   }
 
   public void setWidth(float width) {
