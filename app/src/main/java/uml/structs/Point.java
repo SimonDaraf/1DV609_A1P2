@@ -4,15 +4,15 @@ package uml.structs;
  * A structure for a point in 2D space.
  */
 public class Point {
-  public float x;
-  public float y;
+  public float xpos;
+  public float ypos;
 
   /**
    * Constructs a new point and sets x and y to 0.
    */
   public Point() {
-    x = 0;
-    y = 0;
+    xpos = 0;
+    ypos = 0;
   }
 
   /**
@@ -22,8 +22,8 @@ public class Point {
    * @param y - The y value.
    */
   public Point(float x, float y) {
-    this.x = x;
-    this.y = y;
+    this.xpos = x;
+    this.ypos = y;
   }
 
   /**
@@ -32,7 +32,7 @@ public class Point {
    * @param point - The point to construct from.
    */
   public Point(Point point) {
-    x = point.x;
-    y = point.y;
+    xpos = point.xpos;
+    ypos = point.ypos;
   }
 }
