@@ -16,4 +16,15 @@ public class RectangleTests {
     Assertions.assertEquals(expected.xpos, actual.xpos);
     Assertions.assertEquals(expected.ypos, actual.ypos);
   }
+
+  @Test
+  public void shouldBeAbleToSetWidth() {
+    Rectangle sut = new Rectangle();
+    float expected = 150;
+
+    sut.setWidth(expected);
+    float actual = sut.getWidth();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
