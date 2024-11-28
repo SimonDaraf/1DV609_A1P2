@@ -80,7 +80,7 @@ public class Rectangle extends Shape {
   }
 
   public void setWidth(float width) {
-    this.width = width;
+    this.width = clampWidthAndHeight(width);
   }
 
   public void changeWidth(float change) {
@@ -93,5 +93,9 @@ public class Rectangle extends Shape {
 
   public void changeHeight(float change) {
 
+  }
+
+  private float clampWidthAndHeight(float value) {
+    return Math.max(0, value);
   }
 }
