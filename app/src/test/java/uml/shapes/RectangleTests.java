@@ -38,4 +38,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldClampWidthTo0() {
+    Rectangle sut = new Rectangle();
+    float expected = 0;
+
+    sut.setWidth(-10);
+    float actual = sut.getWidth();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
