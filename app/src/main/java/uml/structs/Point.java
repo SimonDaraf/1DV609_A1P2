@@ -25,4 +25,13 @@ public class Point {
      this.x = x;
      this.y = y;
   }
+
+  /**
+   * Constructs a point from another given point.
+   *
+   * @param point - The point to construct from.
+   */
+  public Point(Point point) {
+
+  }
 }
