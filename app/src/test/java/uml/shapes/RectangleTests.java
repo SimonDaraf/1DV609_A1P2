@@ -27,4 +27,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldBeAbleToSetHeight() {
+    Rectangle sut = new Rectangle();
+    float expected = 150;
+
+    sut.setHeight(expected);
+    float actual = sut.getHeight();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
