@@ -12,6 +12,8 @@ public abstract class Shape {
    * Constructor for abstract shape.
    *
    * @param backgroundColor - The background color.
+   * @param lineColor - The line color.
+   * @param borderOption - The border option.
    */
   public Shape(Color backgroundColor, Color lineColor, BorderOptions borderOption) {
     this.backgroundColor = backgroundColor;
