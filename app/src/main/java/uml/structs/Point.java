@@ -16,14 +16,14 @@ public class Point {
   }
 
   /**
-   * Constructs a point and assigns given x and y value
+   * Constructs a point and assigns given x and y value.
    *
    * @param x - The x value.
    * @param y - The y value.
    */
   public Point(float x, float y) {
-     this.x = x;
-     this.y = y;
+    this.x = x;
+    this.y = y;
   }
 
   /**
@@ -32,6 +32,7 @@ public class Point {
    * @param point - The point to construct from.
    */
   public Point(Point point) {
-
+    x = point.x;
+    y = point.y;
   }
 }
