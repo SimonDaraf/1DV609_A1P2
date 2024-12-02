@@ -84,7 +84,7 @@ public class Rectangle extends Shape {
   }
 
   public void changeWidth(float change) {
-
+    width += change;
   }
 
   public void setHeight(float height) {
