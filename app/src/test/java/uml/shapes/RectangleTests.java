@@ -138,7 +138,7 @@ public class RectangleTests {
     sut.setAnchorPosition(new Point(10, 10));
     sut.changeBorderOption(BorderOptions.DOTTED);
 
-    Rectangle cloned = sut.clone();
+    Rectangle cloned = sut.cloneInstance();
 
     Assertions.assertNotEquals(sut, cloned);
     Assertions.assertEquals(sut.getWidth(), cloned.getWidth());

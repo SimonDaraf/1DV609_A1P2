@@ -101,7 +101,12 @@ public class Rectangle extends Shape implements Cloneable<Rectangle> {
   }
 
   @Override
-  public Rectangle clone() {
-    return this;
+  public Rectangle cloneInstance() {
+    Color bg = getBackgroundColor();
+    Color lc = getLineColor();
+    return new Rectangle(new Point(anchor.xpos, anchor.ypos), width, height,
+                new Color(bg.getRed(), bg.getGreen(), bg.getBlue()),
+                new Color(lc.getRed(), lc.getGreen(), lc.getBlue()),
+                getBorderOption());
   }
 }
