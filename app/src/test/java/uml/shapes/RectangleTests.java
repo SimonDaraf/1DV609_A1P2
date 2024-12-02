@@ -93,4 +93,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldIncrementTheHeight() {
+    Rectangle sut = new Rectangle();
+    float expected = 110;
+
+    sut.changeHeight(10);
+    float actual = sut.getHeight();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
