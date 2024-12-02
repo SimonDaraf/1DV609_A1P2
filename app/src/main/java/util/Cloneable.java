@@ -12,5 +12,5 @@ public interface Cloneable<T> {
    *
    * @return - The cloned instance.
    */
-  public T clone();
+  public T cloneInstance();
 }
