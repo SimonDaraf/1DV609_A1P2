@@ -60,4 +60,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldIncrementTheWidth() {
+    Rectangle sut = new Rectangle();
+    float expected = 110;
+
+    sut.changeWidth(10);
+    float actual = sut.getWidth();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
