@@ -71,4 +71,15 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldDecrementTheWidth() {
+    Rectangle sut = new Rectangle();
+    float expected = 90;
+
+    sut.changeWidth(-10);
+    float actual = sut.getWidth();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
