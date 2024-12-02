@@ -49,4 +49,14 @@ public class EntityTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldBeAbleToSetStereotype() {
+    Stereotype expected = Stereotype.ENUMERATION;
+    sut.setStereotype(expected);
+
+    Stereotype actual = sut.getStereotype();
+
+    Assertions.assertEquals(expected, actual);
+  }
 }
