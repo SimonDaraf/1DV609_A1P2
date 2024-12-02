@@ -47,7 +47,7 @@ public class Entity {
   }
 
   public void setStereotype(Stereotype stereotype) {
-
+    this.stereotype = stereotype;
   }
 
   public String getName() {
