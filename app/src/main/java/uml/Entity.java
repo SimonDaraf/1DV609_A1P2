@@ -31,7 +31,10 @@ public class Entity {
     this.stereotype = stereotype;
   }
 
-  public void setVisibility(Visibility visibility) {
-
+  public void setVisibility(Visibility visibility) throws InvalidVisibilityException {
+    if (visibility != Visibility.PUBLIC && visibility != Visibility.PACKAGE) {
+      throw new InvalidVisibilityException("Visibility on an entity can not be of type: " + visibility.toString());
+    }
+    this.visibility = visibility;
   }
 }

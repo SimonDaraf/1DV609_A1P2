@@ -13,7 +13,11 @@ public class EntityTests {
   @BeforeEach
   public void setup() {
     Rectangle mockedRec = mock(Rectangle.class);
-    sut = new Entity("Test", "aaaaaa", mockedRec, Visibility.PUBLIC, Stereotype.ENTITY);
+    try {
+      sut = new Entity("Test", "aaaaaa", mockedRec, Visibility.PUBLIC, Stereotype.ENTITY);
+    } catch (InvalidVisibilityException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Test
