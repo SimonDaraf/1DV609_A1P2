@@ -92,7 +92,7 @@ public class Rectangle extends Shape {
   }
 
   public void changeHeight(float change) {
-    height += change;
+    height = clampWidthAndHeight(height + change);
   }
 
   private float clampWidthAndHeight(float value) {
