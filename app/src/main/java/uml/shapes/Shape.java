@@ -16,8 +16,8 @@ public abstract class Shape {
    * @param borderOption - The border option.
    */
   public Shape(Color backgroundColor, Color lineColor, BorderOptions borderOption) {
-    this.backgroundColor = backgroundColor;
-    this.lineColor = lineColor;
+    this.backgroundColor = new Color(backgroundColor.getRed(), backgroundColor.getGreen(), backgroundColor.getBlue());
+    this.lineColor = new Color(lineColor.getRed(), lineColor.getGreen(), lineColor.getBlue());
     this.borderOption = borderOption;
   }
 
