@@ -2,6 +2,7 @@ package util;
 
 /**
  * Provides an in-house cloneable interface.
+ *
  * @param <T> - The cloneable type.
  */
 public interface Cloneable<T> {

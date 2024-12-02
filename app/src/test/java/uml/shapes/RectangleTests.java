@@ -126,4 +126,31 @@ public class RectangleTests {
 
     Assertions.assertEquals(expected, actual);
   }
+
+  @Test
+  public void shouldBeAbleToCloneRectangleInstance() {
+    Rectangle sut = new Rectangle();
+
+    sut.changeLineColor(new Color(0, 0, 0));
+    sut.changeBackgroundColor(new Color(0, 0, 0));
+    sut.setWidth(10);
+    sut.setHeight(10);
+    sut.setAnchorPosition(new Point(10, 10));
+    sut.changeBorderOption(BorderOptions.DOTTED);
+
+    Rectangle cloned = sut.clone();
+
+    Assertions.assertNotEquals(sut, cloned);
+    Assertions.assertEquals(sut.getWidth(), cloned.getWidth());
+    Assertions.assertEquals(sut.getHeight(), cloned.getHeight());
+    Assertions.assertEquals(sut.getAnchorPosition().xpos, cloned.getAnchorPosition().xpos);
+    Assertions.assertEquals(sut.getAnchorPosition().ypos, cloned.getAnchorPosition().ypos);
+    Assertions.assertEquals(sut.getBackgroundColor().getRed(), cloned.getBackgroundColor().getRed());
+    Assertions.assertEquals(sut.getBackgroundColor().getGreen(), cloned.getBackgroundColor().getGreen());
+    Assertions.assertEquals(sut.getBackgroundColor().getBlue(), cloned.getBackgroundColor().getBlue());
+    Assertions.assertEquals(sut.getLineColor().getRed(), cloned.getLineColor().getRed());
+    Assertions.assertEquals(sut.getLineColor().getGreen(), cloned.getLineColor().getGreen());
+    Assertions.assertEquals(sut.getLineColor().getBlue(), cloned.getLineColor().getBlue());
+    Assertions.assertEquals(sut.getBorderOption(), cloned.getBorderOption());
+  }
 }

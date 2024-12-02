@@ -1,11 +1,12 @@
 package uml.shapes;
 
 import uml.structs.Point;
+import util.Cloneable;
 
 /**
  * Represents a rectangle shape.
  */
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Cloneable<Rectangle> {
   private Point anchor;
   private float width;
   private float height;
@@ -97,5 +98,10 @@ public class Rectangle extends Shape {
 
   private float clampWidthAndHeight(float value) {
     return Math.max(0, value);
+  }
+
+  @Override
+  public Rectangle clone() {
+    return this;
   }
 }
