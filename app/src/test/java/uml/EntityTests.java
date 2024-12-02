@@ -29,4 +29,14 @@ public class EntityTests {
       Assertions.assertTrue(true);
     }
   }
+
+  @Test
+  public void shouldThrowErrorIfVisibilityIsProtected() {
+    try {
+      sut.setVisibility(Visibility.PROTECTED);
+      Assertions.fail("Did not fail when visibility was set to private.");
+    } catch(InvalidVisibilityException e) {
+      Assertions.assertTrue(true);
+    }
+  }
 }
