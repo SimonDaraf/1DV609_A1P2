@@ -34,9 +34,19 @@ public class EntityTests {
   public void shouldThrowErrorIfVisibilityIsProtected() {
     try {
       sut.setVisibility(Visibility.PROTECTED);
-      Assertions.fail("Did not fail when visibility was set to private.");
+      Assertions.fail("Did not fail when visibility was set to protected.");
     } catch(InvalidVisibilityException e) {
       Assertions.assertTrue(true);
     }
+  }
+
+  @Test
+  public void shouldBeAbleToSetName() {
+    String expected = "myEntity";
+    sut.setName(expected);
+
+    String actual = sut.getName();
+
+    Assertions.assertEquals(expected, actual);
   }
 }

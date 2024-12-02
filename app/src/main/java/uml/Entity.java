@@ -8,7 +8,7 @@ import uml.shapes.Rectangle;
  */
 public class Entity {
   private String name;
-  private String id;
+  private final String id;
   private Rectangle shape;
   private Visibility visibility;
   private Stereotype stereotype;
@@ -31,10 +31,43 @@ public class Entity {
     this.stereotype = stereotype;
   }
 
+  public void setName(String name) {
+
+  }
+
+  public void setShape(Rectangle shape) {
+
+  }
+
   public void setVisibility(Visibility visibility) throws InvalidVisibilityException {
     if (visibility != Visibility.PUBLIC && visibility != Visibility.PACKAGE) {
       throw new InvalidVisibilityException("Visibility on an entity can not be of type: " + visibility.toString());
     }
     this.visibility = visibility;
+  }
+
+  public void setStereotype(Stereotype stereotype) {
+
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public Visibility getVisibility() {
+    return visibility;
+  }
+
+  public Stereotype getStereotype() {
+    return stereotype;
+  }
+
+  @Override
+  public String toString() {
+    return "";
   }
 }
