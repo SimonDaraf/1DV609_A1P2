@@ -116,4 +116,24 @@ public class EntityTests {
 
     Assertions.assertEquals(expected, operations[0].getId());
   }
+
+  @Test
+  public void operationsReturnedShouldBeImmutable() {
+    Operation mockedOperation = mock(Operation.class);
+    Operation expectedOperation = mock(Operation.class);
+    String expectedId = "expected";
+
+    when(mockedOperation.cloneInstance()).thenReturn(expectedOperation);
+    when(mockedOperation.getId()).thenReturn("error");
+    when(expectedOperation.getId()).thenReturn(expectedId);
+
+    sut.addOperation(mockedOperation);
+    Operation[] operations = sut.getOperations();
+
+    if (operations.length == 0) {
+      Assertions.fail("An empty array was returned.");
+    }
+
+    Assertions.assertEquals(expectedId, operations[0].getId());
+  }
 }
