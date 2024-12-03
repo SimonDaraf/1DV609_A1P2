@@ -3,10 +3,14 @@ package uml;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 import uml.errors.InvalidVisibilityException;
 import uml.shapes.Rectangle;
 import uml.structs.Attribute;
 import uml.structs.Operation;
+
+import java.util.function.Function;
 
 import static org.mockito.Mockito.*;
 
@@ -135,5 +139,23 @@ public class EntityTests {
     }
 
     Assertions.assertEquals(expectedId, operations[0].getId());
+  }
+
+  @Test
+  public void ShapeInstanceSetShouldBeImmutable() {
+    Rectangle mockedRectangle = mock(Rectangle.class);
+    Rectangle clonedMockRectangle = mock(Rectangle.class);
+    String expected = "expected";
+
+    when(mockedRectangle.cloneInstance()).thenReturn(clonedMockRectangle);
+    // When we later clone the return on getShape.
+    when(clonedMockRectangle.cloneInstance()).thenReturn(clonedMockRectangle);
+    when(mockedRectangle.toString()).thenReturn("error");
+    when(clonedMockRectangle.toString()).thenReturn(expected);
+
+    sut.setShape(mockedRectangle);
+    Rectangle actual = sut.getShape();
+
+    Assertions.assertEquals(expected, actual.toString());
   }
 }

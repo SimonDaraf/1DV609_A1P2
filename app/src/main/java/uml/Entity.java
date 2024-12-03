@@ -43,7 +43,7 @@ public class Entity {
   }
 
   public void setShape(Rectangle shape) {
-    this.shape = shape.cloneInstance();
+    this.shape = shape;
   }
 
   /**
@@ -69,6 +69,10 @@ public class Entity {
 
   public String getId() {
     return id;
+  }
+
+  public Rectangle getShape() {
+    return shape.cloneInstance();
   }
 
   public Visibility getVisibility() {
