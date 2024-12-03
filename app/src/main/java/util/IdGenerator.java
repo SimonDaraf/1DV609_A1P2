@@ -7,6 +7,12 @@ import java.util.Random;
  */
 public class IdGenerator {
   private final Random random;
+  private static int bound = 62;
+  private static int numberBound = 10;
+  private static int lowerCaseBound = 36;
+  private static int numberOffset = 48;
+  private static int lowerCaseOffset = 55;
+  private static int capitalCaseOffset = 61;
 
   /**
    * Constructs a new instance of the IdGenerator.
@@ -26,17 +32,17 @@ public class IdGenerator {
   }
 
   private char getRandomAlphanumericCharacter() {
-    int randomIndex = random.nextInt(62);
-    int offset = 0;
+    int randomIndex = random.nextInt(bound);
+    int offset;
 
     // Total amount of allowed characters is 62,
     // then just offset to match numeric value for corresponding char.
-    if (randomIndex < 10) {
-      offset = 48;
-    } else if (randomIndex < 36) {
-      offset = 55;
+    if (randomIndex < numberBound) {
+      offset = numberOffset;
+    } else if (randomIndex < lowerCaseBound) {
+      offset = lowerCaseOffset;
     } else {
-      offset = 61;
+      offset = capitalCaseOffset;
     }
 
     return (char) (randomIndex + offset);
