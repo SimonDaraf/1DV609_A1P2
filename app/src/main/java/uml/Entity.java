@@ -98,8 +98,19 @@ public class Entity {
     attributes.add(attribute);
   }
 
+  /**
+   * Get an immutable array of the entities operations.
+   *
+   * @return - the immutable array of operations.
+   */
   public Operation[] getOperations() {
-    return operations.toArray(Operation[]::new);
+    Operation[] operationArr = new Operation[operations.size()];
+
+    for (int i = 0; i < operationArr.length; i++) {
+      operationArr[i] = operations.get(i).cloneInstance();
+    }
+
+    return operationArr;
   }
 
   public void addOperation(Operation operation) {
