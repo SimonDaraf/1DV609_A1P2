@@ -46,6 +46,6 @@ public class Attribute implements Cloneable<Attribute> {
 
   @Override
   public Attribute cloneInstance() {
-    return this;
+    return new Attribute(id, name, type, visibility);
   }
 }
