@@ -9,5 +9,6 @@ public enum DefaultTypes {
   STRING,
   REAL,
   DOUBLE,
-  CHAR
+  CHAR,
+  VOID
 }
