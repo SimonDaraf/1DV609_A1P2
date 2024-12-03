@@ -77,4 +77,24 @@ public class EntityTests {
 
     Assertions.assertEquals(expected, attrs[0].getId());
   }
+
+  @Test
+  public void attributesReturnedShouldBeImmutable() {
+    Attribute mockedAttr = mock(Attribute.class);
+    Attribute expectedAttr = mock(Attribute.class);
+    String expectedId = "expected";
+
+    when(mockedAttr.cloneInstance()).thenReturn(expectedAttr);
+    when(mockedAttr.getId()).thenReturn("error");
+    when(expectedAttr.getId()).thenReturn(expectedId);
+
+    sut.addAttribute(mockedAttr);
+    Attribute[] attributes = sut.getAttributes();
+
+    if (attributes.length == 0) {
+      Assertions.fail("An empty array was returned.");
+    }
+
+    Assertions.assertEquals(expectedId, attributes[0].getId());
+  }
 }
