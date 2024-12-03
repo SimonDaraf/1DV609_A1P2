@@ -43,7 +43,7 @@ public class Entity {
   }
 
   public void setShape(Rectangle shape) {
-    this.shape = shape;
+    this.shape = shape.cloneInstance();
   }
 
   /**
