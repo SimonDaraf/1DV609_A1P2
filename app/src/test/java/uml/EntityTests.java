@@ -67,6 +67,7 @@ public class EntityTests {
     Attribute mockedAttr = mock(Attribute.class);
     String expected = "attr1";
     when(mockedAttr.getId()).thenReturn(expected);
+    when(mockedAttr.cloneInstance()).thenReturn(mockedAttr);
 
     sut.addAttribute(mockedAttr);
     Attribute[] attrs = sut.getAttributes();
