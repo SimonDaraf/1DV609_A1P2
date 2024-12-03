@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import uml.errors.InvalidVisibilityException;
 import uml.shapes.Rectangle;
+import uml.structs.Attribute;
+
 import static org.mockito.Mockito.*;
 
 public class EntityTests {
@@ -58,5 +60,21 @@ public class EntityTests {
     Stereotype actual = sut.getStereotype();
 
     Assertions.assertEquals(expected, actual);
+  }
+
+  @Test
+  public void shouldBeAbleToAddAttributes() {
+    Attribute mockedAttr = mock(Attribute.class);
+    String expected = "attr1";
+    when(mockedAttr.getId()).thenReturn(expected);
+
+    sut.addAttribute(mockedAttr);
+    Attribute[] attrs = sut.getAttributes();
+
+    if (attrs.length == 0) {
+      Assertions.fail("An empty array was returned.");
+    }
+
+    Assertions.assertEquals(expected, attrs[0].getId());
   }
 }

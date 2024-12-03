@@ -1,7 +1,9 @@
 package uml;
 
+import java.util.ArrayList;
 import uml.errors.InvalidVisibilityException;
 import uml.shapes.Rectangle;
+import uml.structs.Attribute;
 
 /**
  * Represents a UML Class entity.
@@ -12,6 +14,7 @@ public class Entity {
   private Rectangle shape;
   private Visibility visibility;
   private Stereotype stereotype;
+  private final ArrayList<Attribute> attributes;
 
   /**
    * Constructs a class entity.
@@ -29,6 +32,7 @@ public class Entity {
     this.shape = shape.cloneInstance();
     this.visibility = visibility;
     this.stereotype = stereotype;
+    attributes = new ArrayList<>();
   }
 
   public void setName(String name) {
@@ -70,6 +74,14 @@ public class Entity {
 
   public Stereotype getStereotype() {
     return stereotype;
+  }
+
+  public Attribute[] getAttributes() {
+    return attributes.toArray(Attribute[]::new);
+  }
+
+  public void addAttribute(Attribute attribute) {
+
   }
 
   @Override
