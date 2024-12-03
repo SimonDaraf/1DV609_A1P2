@@ -81,7 +81,7 @@ public class Entity {
   }
 
   public void addAttribute(Attribute attribute) {
-
+    attributes.add(attribute);
   }
 
   @Override
