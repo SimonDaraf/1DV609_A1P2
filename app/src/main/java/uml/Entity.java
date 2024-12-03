@@ -103,7 +103,7 @@ public class Entity {
   }
 
   public void addOperation(Operation operation) {
-
+    this.operations.add(operation);
   }
 
   @Override
