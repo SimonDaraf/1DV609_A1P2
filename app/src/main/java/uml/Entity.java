@@ -76,8 +76,19 @@ public class Entity {
     return stereotype;
   }
 
+  /**
+   * Get an immutable array of the entities attributes.
+   *
+   * @return - the immutable array of attributes.
+   */
   public Attribute[] getAttributes() {
-    return attributes.toArray(Attribute[]::new);
+    Attribute[] attrArray = new Attribute[attributes.size()];
+
+    for (int i = 0; i < attrArray.length; i++) {
+      attrArray[i] = attributes.get(i).cloneInstance();
+    }
+
+    return attrArray;
   }
 
   public void addAttribute(Attribute attribute) {
