@@ -89,6 +89,7 @@ tasks.named('test') {
 }
 
 test {
+    useJUnitPlatform()
     // make sure we run the code quality stuff first
     // we need the generated reports when testing
     dependsOn checkstyleMain

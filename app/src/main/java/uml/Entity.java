@@ -26,7 +26,7 @@ public class Entity {
                 Visibility visibility, Stereotype stereotype) throws InvalidVisibilityException {
     this.name = name;
     this.id = id;
-    this.shape = shape;
+    this.shape = shape.cloneInstance();
     this.visibility = visibility;
     this.stereotype = stereotype;
   }
@@ -36,9 +36,15 @@ public class Entity {
   }
 
   public void setShape(Rectangle shape) {
-    this.shape = shape;
+    this.shape = shape.cloneInstance();
   }
 
+  /**
+   * Sets the visibility option on the entity.
+   *
+   * @param visibility - The visibility option.
+   * @throws InvalidVisibilityException - Thrown when an invalid visibility is given.
+   */
   public void setVisibility(Visibility visibility) throws InvalidVisibilityException {
     if (visibility != Visibility.PUBLIC && visibility != Visibility.PACKAGE) {
       throw new InvalidVisibilityException("Visibility on an entity can not be of type: " + visibility.toString());
