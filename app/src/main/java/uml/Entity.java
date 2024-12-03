@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import uml.errors.InvalidVisibilityException;
 import uml.shapes.Rectangle;
 import uml.structs.Attribute;
+import uml.structs.Operation;
 
 /**
  * Represents a UML Class entity.
@@ -15,6 +16,7 @@ public class Entity {
   private Visibility visibility;
   private Stereotype stereotype;
   private final ArrayList<Attribute> attributes;
+  private final ArrayList<Operation> operations;
 
   /**
    * Constructs a class entity.
@@ -33,6 +35,7 @@ public class Entity {
     this.visibility = visibility;
     this.stereotype = stereotype;
     attributes = new ArrayList<>();
+    operations = new ArrayList<>();
   }
 
   public void setName(String name) {
@@ -93,6 +96,14 @@ public class Entity {
 
   public void addAttribute(Attribute attribute) {
     attributes.add(attribute);
+  }
+
+  public Operation[] getOperations() {
+    return operations.toArray(Operation[]::new);
+  }
+
+  public void addOperation(Operation operation) {
+
   }
 
   @Override

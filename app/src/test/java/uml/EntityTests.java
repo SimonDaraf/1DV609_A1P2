@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import uml.errors.InvalidVisibilityException;
 import uml.shapes.Rectangle;
 import uml.structs.Attribute;
+import uml.structs.Operation;
 
 import static org.mockito.Mockito.*;
 
@@ -97,5 +98,22 @@ public class EntityTests {
     }
 
     Assertions.assertEquals(expectedId, attributes[0].getId());
+  }
+
+  @Test
+  public void shouldBeAbleToAddOperations() {
+    Operation mockedOperation = mock(Operation.class);
+    String expected = "operation1";
+    when(mockedOperation.getId()).thenReturn(expected);
+    when(mockedOperation.cloneInstance()).thenReturn(mockedOperation);
+
+    sut.addOperation(mockedOperation);
+    Operation[] operations = sut.getOperations();
+
+    if (operations.length == 0) {
+      Assertions.fail("An empty array was returned.");
+    }
+
+    Assertions.assertEquals(expected, operations[0].getId());
   }
 }
