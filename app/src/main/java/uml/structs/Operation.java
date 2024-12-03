@@ -46,6 +46,6 @@ public class Operation implements Cloneable<Operation> {
 
   @Override
   public Operation cloneInstance() {
-    return this;
+    return new Operation(id, name, returnType, visibility);
   }
 }
